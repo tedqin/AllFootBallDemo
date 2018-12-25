@@ -137,3 +137,115 @@ footer {
 	color: #999;
 	text-align: center;
 }
+
+.dialogWrapper {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	perspective: 500px;
+}
+
+.dialogWrapper.show {
+	display: block;
+}
+
+.dialogWrapper .mask {
+	width: 100%;
+	height: 100%;
+	background:  rgba(0, 0, 0, .3);
+}
+
+@keyframes slideIn {
+	from {
+		transform: translate(-50%, -50%) rotateX(-90deg);
+	}
+	80% {
+		transform: translate(-50%, -50%) rotateX(0deg);
+	}
+	to {
+		transform: translate(-50%, -50%) rotateX(0deg);
+	}
+} 
+
+.dialogWrapper .dialog {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 500px;
+	height: 300px;
+	margin-left: -250px;
+	margin-top: -150px;
+	background: #f0f0f0;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50%;
+	transform: translate(-50%, -50%);
+	background: white;
+	margin: auto;
+}
+	
+.dialogWrapper.show .dialog {
+	animation: slideIn .4s;
+	animation-fill-mode: forwards;
+}
+
+.dialogWrapper .dialog .title {
+	height: 50px;
+	line-height: 50px;
+	padding: 0 30px;
+	border: 1px solid #f0f0f0;
+	font-size: 20px;
+}
+
+.dialogWrapper .dialog .body {
+	padding: 30px 80px;
+}
+
+.dialogWrapper .dialog .body li {
+	line-height: 50px;
+	font-size: 20px;
+}
+
+.dialogWrapper .dialog .body li label {
+	display: inline-block;
+	width: 100px;
+}
+
+.dialogWrapper .dialog .body li input {
+	font-size: 20px;
+	border: 0 none;
+	border-bottom: 1px solid #ccc;
+	width: 230px;
+}
+
+.dialogWrapper .dialog .body li input:focus {
+	outline:  0 none;
+}
+
+.dialogWrapper .dialog .body li.operateWrapper button {
+	width: 140px;
+	height: 40px;
+	background: white;
+	border: 1px solid #999;
+	font-size: 20px;
+	letter-spacing: 1em;
+	text-indent: 1em;
+	cursor: pointer;
+	margin-right: 50px;
+}
+
+.dialogWrapper .dialog .body li.operateWrapper {
+	margin-top: 20px;
+}
+
+.dialogWrapper .dialog .body li.operateWrapper button:last-of-type {
+	margin-right: 0;
+}
+
+.dialogWrapper .dialog .body li.operateWrapper button.primary {
+	background: #4990e2;
+	border-color: #4990e2;
+	color: white;
+}

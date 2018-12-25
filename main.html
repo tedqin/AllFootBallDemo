@@ -10,7 +10,7 @@
 	<header>
 		<nav>
 			<div class="user">
-				<a href="#" id="ligin">登录</a>
+				<a href="#" id="login">登录</a>
 			</div>
 			<ul>
 				<li><a href="#">视频</a></li>
@@ -69,7 +69,45 @@
 		</div>
 	</div>
 	<footer>
-		Tedqin @ 2019
+		Tedqin @ 2018
 	</footer>
+
+	<div class="dialogWrapper">
+		<div class="mask"></div>
+		<div class="dialog">
+			<div class="title">登录</div>
+			<div class="body">
+				<form>
+					<ul>
+						<li>
+							<label>用户名</label>
+							<input type="text" name="username">
+						</li>
+						<li>
+							<label>密码</label>
+							<input type="password" name="password">
+						</li>
+						<li class="operateWrapper">
+							<button id="cancleDialog">取消</button>
+							<button class="primary">登录</button>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.querySelector('#login').addEventListener('click', function (e) {
+			document.querySelector('.dialogWrapper').classList.add('show')	
+			e.preventDefault();
+		})
+
+		document.querySelector('#cancleDialog').addEventListener('click', function (e) {
+			document.querySelector('.dialogWrapper').classList.remove('show')	
+			e.preventDefault();
+		})
+	</script>
+
 </body>
 </html>
